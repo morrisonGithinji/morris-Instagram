@@ -20,7 +20,7 @@ class ProfileTestCase(TestCase):
       
 class LikesTestCase(TestCase):
   def setUp(self):
-    user = User.objects.create(username='ebay',password= 'qwerty')
+    user = User.objects.create(username='morris',password= '5431140')
     profile = Profile.objects.create(user=user,bio='music and code', profile_photo ='ebay.jpg')
     post = Post.objects.create(user=user,image='ebay.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2020-12-02' )
     Likes.objects.create(user=user,post=post)
@@ -43,7 +43,7 @@ class CommentTestCase(TestCase):
     
 class FollowTest(TestCase):
   def setUp(self):
-    user = User.objects.create(username='ebay',password= 'qwerty')
+    user = User.objects.create(username='morris',password= '5431140')
     
     self.ebay=Follow(follower=user,following=user)
     
@@ -52,7 +52,7 @@ class FollowTest(TestCase):
   
 class PostTest(TestCase):
   def setUp(self):
-    user = User.objects.create(username='ebay',password= 'qwerty')
+    user = User.objects.create(username='morris',password= '5431140')
     profile = Profile.objects.create(user=user,bio='music and code', profile_photo ='ebay.jpg')
 
     self.ebay =Post(user=user,image='ebay.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2020-12-02')
