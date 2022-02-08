@@ -7,7 +7,7 @@ import datetime as dt
 
 class ProfileTestCase(TestCase):
   def setUp(self):
-    user = User.objects.create(username='ebay',password= 'qwerty')
+    user = User.objects.create(username='morris',password= '5431140')
     self.ebay =Profile(bio='Programming is life',user=user)
   def test_instance(self):
     self.assertTrue(isinstance(self.morris,Profile))  
@@ -53,7 +53,7 @@ class FollowTest(TestCase):
 class PostTest(TestCase):
   def setUp(self):
     user = User.objects.create(username='morris',password= '5431140')
-    profile = Profile.objects.create(user=user,bio='music and code', profile_photo ='ebay.jpg')
+    profile = Profile.objects.create(user=user,bio='code and fun', profile_photo ='morris.jpg')
 
     self.ebay =Post(user=user,image='morris.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05')
     
