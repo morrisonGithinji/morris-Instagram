@@ -8,9 +8,9 @@ import datetime as dt
 class ProfileTestCase(TestCase):
   def setUp(self):
     user = User.objects.create(username='ebay',password= 'qwerty')
-    self.ebay =Profile(bio='i love code',user=user)
+    self.ebay =Profile(bio='Programming is life',user=user)
   def test_instance(self):
-    self.assertTrue(isinstance(self.ebay,Profile))  
+    self.assertTrue(isinstance(self.morris,Profile))  
     
   def test_save_method(self):
       self.ebay.save_profile()
@@ -21,8 +21,8 @@ class ProfileTestCase(TestCase):
 class LikesTestCase(TestCase):
   def setUp(self):
     user = User.objects.create(username='morris',password= '5431140')
-    profile = Profile.objects.create(user=user,bio='music and code', profile_photo ='ebay.jpg')
-    post = Post.objects.create(user=user,image='ebay.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2020-12-02' )
+    profile = Profile.objects.create(user=user,bio='code and fun', profile_photo ='morris.jpg')
+    post = Post.objects.create(user=user,image='morris.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05' )
     Likes.objects.create(user=user,post=post)
     
     self.ebay=Likes(user=user)
@@ -32,11 +32,11 @@ class LikesTestCase(TestCase):
     
 class CommentTestCase(TestCase):    
   def setUp(self):
-    user = User.objects.create(username='ebay',password= 'qwerty')
-    profile = Profile.objects.create(user=user,bio='music and code', profile_photo ='ebay.jpg')
-    post = Post.objects.create(user=user,image='ebay.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2020-12-02' )
+    user = User.objects.create(username='morris',password= '5431140')
+    profile = Profile.objects.create(user=user,bio='code and fun', profile_photo ='morris.jpg')
+    post = Post.objects.create(user=user,image='morris.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05' )
     
-    self.ebay=Comment(user=user, date='2020-12-2',post=post,comment="yes we can")
+    self.ebay=Comment(user=user, date='2022-02-05',post=post,comment="yes we can")
   def test_instance(self):
     self.assertTrue(isinstance(self.ebay,Comment))
     
@@ -55,7 +55,7 @@ class PostTest(TestCase):
     user = User.objects.create(username='morris',password= '5431140')
     profile = Profile.objects.create(user=user,bio='music and code', profile_photo ='ebay.jpg')
 
-    self.ebay =Post(user=user,image='ebay.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2020-12-02')
+    self.ebay =Post(user=user,image='morris.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05')
     
   def test_instance(self):
     self.assertTrue(isinstance(self.ebay,Post))
