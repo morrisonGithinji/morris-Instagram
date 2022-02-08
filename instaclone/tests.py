@@ -28,7 +28,7 @@ class LikesTestCase(TestCase):
     self.ebay=Likes(user=user)
     
   def test_instance(self):
-    self.assertTrue(isinstance(self.ebay,Likes))  
+    self.assertTrue(isinstance(self.morris,Likes))  
     
 class CommentTestCase(TestCase):    
   def setUp(self):
@@ -38,17 +38,17 @@ class CommentTestCase(TestCase):
     
     self.ebay=Comment(user=user, date='2022-02-05',post=post,comment="yes we can")
   def test_instance(self):
-    self.assertTrue(isinstance(self.ebay,Comment))
+    self.assertTrue(isinstance(self.morris,Comment))
     
     
 class FollowTest(TestCase):
   def setUp(self):
     user = User.objects.create(username='morris',password= '5431140')
     
-    self.ebay=Follow(follower=user,following=user)
+    self.morris=Follow(follower=user,following=user)
     
   def test_instance(self):
-    self.assertTrue(isinstance(self.ebay,Follow))
+    self.assertTrue(isinstance(self.morris,Follow))
   
 class PostTest(TestCase):
   def setUp(self):
@@ -61,12 +61,12 @@ class PostTest(TestCase):
     self.assertTrue(isinstance(self.ebay,Post))
   
   def test_save(self):
-    self.ebay.save_image()
+    self.morris.save_image()
     saved = Post.objects.all()
     self.assertTrue(len(saved)>0)
     
   def test_delete(self):
-    self.ebay.delete_image()
+    self.morris.delete_image()
     deleted = Post.objects.all()
     self.assertTrue(len(deleted)==0)
     
