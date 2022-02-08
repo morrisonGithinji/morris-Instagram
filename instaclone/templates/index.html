@@ -1,0 +1,67 @@
+{%include 'base.html'%}
+{%load bootstrap4%}
+{%load static%}
+{%block content%}
+{% load cloudinary%}
+<div class="container-fluid">
+   <!-- Card -->
+<div class="card row col-md-9">
+   <!-- user name -->
+   {%for item in post%}
+<div class="media">
+  <img class="d-flex mr-3 rounded-circle profile-image" src="{{item.user.profile.profile_photo.url}}" alt="Generic placeholder image">
+  <div class="media-body">
+    <a href="{% url 'profile' item.user.username %}"><h5 class="mt-0 font-weight-bold">{{item.user}}</h5></a>
+  </div>
+</div>
+
+  <!-- Card image -->
+  <a href="{%url 'post_details' item.id %}"><img class="card-img-top" src="{{item.image.url}}" alt="Card image cap"></a>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+   
+    <!-- Text -->
+    <p class="card-text">{{item.image_caption}}</p>
+    <a href="{%url 'postlikes' item.id%}"><i class="far fa-thumbs-up">Like</i></a>
+    {{item.likes}}
+
+
+
+  </div>
+  <!-- <div class="media d-block d-md-flex mt-3">
+    <a class="d-flex pr-3" href="#">
+      <img src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg" alt="Generic placeholder image">
+    </a>
+    <div class="media-body text-md-left">
+      <h5 class="mt-0 font-weight-bold card-text">Jane Doe</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+      vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
+      congue felis in faucibus.
+    </div>
+  </div> -->
+  <!-- <div class="media-body text-center text-md-left ml-md-3 ml-0">
+    <h5 class="mt-0 font-weight-bold blue-text mb-3">Danny Tatuum</h5>
+    <div class="form-group basic-textarea rounded-corners mb-md-0 mb-4">
+      <textarea class="form-control z-depth-1" id="exampleFormControlTextarea3" rows="3" placeholder="Write your comment..."></textarea>
+    </div>
+  </div> -->
+  {%endfor%}
+  <div class="row">
+    {% autoescape on %}
+    {{image.post| safe}}
+   {% endautoescape %}
+  
+  </div>
+
+</div>
+<!-- Card -->
+
+
+ 
+<!-- post -->
+</div>
+
+  
+{%endblock%}

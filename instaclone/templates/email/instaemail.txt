@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to the InstaCity You can share photos and get likes and comments on them.

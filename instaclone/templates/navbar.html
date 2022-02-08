@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#">
+    <img src="https://pixabay.com/images/id-1675670/" height="30" alt="">
+  </a>
+  <a class="navbar-brand" href="/">Instacity</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+    {%if user.is_authenticated%}
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><i class="fas fa-home"></i>Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'new_post'%}"><i class="far fa-bell"></i>New-Post</a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><i class="fab fa-whmcs"></i>Settings</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{%url 'profile' user.username%}"><i class="far fa-user"></i>My Account</a>
+          <a class="dropdown-item" href="#">Change password</a>
+          <a class="dropdown-item" href="/accounts/logout">Logout</a>
+        </div>
+      </li>
+      {%else%}
+      <li class="nav-item">
+        <a class="nav-link" href="/accounts/register"><i class="far fa-bell"></i>Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/accounts/login"><i class="far fa-bell"></i>Sign in</a>
+      </li>
+      
+    </ul>
+    <!-- Links -->
+    {%endif%}
+    <form class="form-inline navbar-right">
+      <div class="md-form my-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      </div>
+    </form>
+  </div>
+  <!-- Collapsible content -->
+
+</nav>

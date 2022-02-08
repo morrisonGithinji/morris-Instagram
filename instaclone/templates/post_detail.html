@@ -1,0 +1,69 @@
+{%include 'base.html'%}
+{% load bootstrap4%}
+{%load static%}
+{%block content%}
+<div class="container-fluid">
+   <!-- Card -->
+<div class="card row col-md-9">
+  
+   <!-- user name -->
+<div class="media">
+  <img class="d-flex mr-3 img-fluid rounded-circle  profile-image" src="{{post.profile.profile_photo.url}}" alt="Generic placeholder image">
+  <div class="media-body">
+    <h5 class="mt-0 font-weight-bold profile-user-name">{{post.user}}</h5>
+  </div>
+</div>
+
+  <!-- Card image -->
+  <div>
+
+  </div>
+  <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap">
+  
+
+  <!-- Card content -->
+  <div class="card-body">
+
+   
+    <!-- Text -->
+    <p class="card-text">{{post.image_caption}}</p>
+
+    <a href=""><i class="far fa-thumbs-up">Like</i></a>
+
+
+  </div>
+  {% for comment in comments%}
+  <div class="media d-block d-md-flex mt-3">
+    <a class="d-flex pr-3" href="#">
+      <img class="d-flex mr-3 img-fluid rounded-circle  profile-image" src="{{comment.post.profile.profile_photo.url}}" alt="Generic placeholder image">
+    </a>
+    <div class="media-body text-md-left">
+      <h5 class="mt-0 font-weight-bold card-text">{{comment.user}}</h5>
+      <p>{{comment.comment}}</p>
+      <small>{{comment.date}}</small>
+    </div>
+  </div>
+  {%endfor%}
+  <!-- new comment -->
+  <div class="media-body text-center text-md-left ml-md-3 ml-0">
+    <h5 class="mt-0 font-weight-bold blue-text mb-3">{{comment.user}}</h5>
+    <form method="post" role="form" action="">
+      {%csrf_token%}
+      <div>
+        {% bootstrap_form form%}
+
+        <button name="action" type="submit" class="btn btn-outline-default">Post</button>
+      </div>
+    </form>
+   
+  </div>
+
+
+</div>
+<!-- Card -->
+ 
+<!-- post -->
+</div>
+
+  
+{%endblock%}

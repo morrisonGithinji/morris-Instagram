@@ -1,0 +1,19 @@
+body{
+  background-color: black;
+  color: white;
+}
+
+.profile-image {
+  float: left;
+  width: calc(10.333% - 1rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.profile-user-name {
+  display: inline-block;
+  font-size: 2.8rem;
+  font-weight: 300;
+}

@@ -1,0 +1,13 @@
+{%include 'django_registration/base.html'%}
+{%load bootstrap4%}
+
+{%block content%}
+<div class="container">
+  <h5>Welcome to Instacity. Create your profile and enjoy posting from thence.</h5>
+
+ <a href="{%url 'update_profile' request.user%}"><button class="btn btn-outline-light">Profile Create</button></a> 
+
+
+</div>
+
+{%endblock%}

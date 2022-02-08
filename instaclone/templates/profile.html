@@ -1,0 +1,121 @@
+{%include 'base.html'%}
+{%load static%}
+{%block content%}
+
+
+<div class="container-fluid">
+  <!--Section: Testimonials v.1-->
+<!-- <section class="section pb-3 text-center"> -->
+
+
+
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-12 col-md-12 mb-4">
+
+      <!--Card-->
+      <div class="card testimonial-card">
+
+        <!--Background color-->
+        <div class="card-up teal lighten-2">
+        </div>
+
+        <!--Avatar-->
+        <div class="avatar mx-auto white"><img src="{{profile.profile_photo.url}}"
+            alt="avatar mx-auto white" class="rounded-circle img-fluid profile-image">
+        </div>
+        <h4 class="text-center">{{profile.user}}</h4>
+        <div>
+          <ul class="nav nav-tabs md-tabs nav-justified " role="tablist">
+           
+            {%if request.user != profile.user %}
+            <h5>{{profile.user.email}}</h5>
+            <li class="nav-item">
+              {% if follow_status == True %}
+              <a class="btn btn-outline-danger"  href="{% url 'follow' profile.user 0 %}" >
+                <i class="fas fa-heart pr-2"></i>Unfollow</a>
+              {%else%}
+              <a class="btn btn-outline-blue-grey" href="{% url 'follow' profile.user 1 %}" >
+                <i class="fas fa-heart pr-2"></i>Follow</a>  
+               {%endif%}
+            </li>
+            {%endif%}
+          </ul>
+        </div>
+
+        <div class="card-body">
+          <!--Name-->
+          <h4 class="card-title mt-1">{{post.user}}</h4>
+          <hr>
+          <!--Quotation-->
+          <p><i class="fas fa-quote-left">{{profile.bio}}</i> </p>
+        </div>
+        <div>
+          <!-- Grid row -->
+
+<!-- Grid row -->
+        </div>
+      </div>
+      <!--Card-->
+    </div>
+  </div>
+  <!-- tabs -->
+  <div>
+    <div class="row">
+
+      <!-- Grid column -->
+      
+      <!-- Grid column -->
+    
+      <!-- Grid column -->
+      <div class="col-md-12">
+    
+        <ul class="nav md-pills nav-justified pills-rounded pills-outline-red">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel89" role="tab">Photos <i class="far fa-grin ml-1"
+                aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel90" role="tab">Followers <i class="fas fa-users ml-1"
+                aria-hidden="true"></i></a>
+          </li>
+
+        </ul>
+    
+      </div>
+      <!-- Grid column -->
+    
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    {%for item in post%}
+    <div class="col-md-12">
+  
+      <div id="mdb-lightbox-ui"></div>
+  
+      <div class="mdb-lightbox">
+  
+        <figure class="col-md-4">
+          <a href="{%url 'post_details' item.id %}" data-size="1600x1067">
+            <img alt="picture" src="{{item.image.url}}" class="img-fluid">
+          </a>
+        </figure>
+  
+
+  
+      </div>
+  
+    </div>
+    {%endfor%}
+  </div>
+
+<!-- </section> -->
+<!--Section: Testimonials v.1-->
+
+
+</div>
+
+{%endblock%}
+
