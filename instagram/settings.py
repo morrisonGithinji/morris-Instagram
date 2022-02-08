@@ -20,9 +20,9 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 cloudinary.config(
-  cloud_name = config('CLOUD_NAME'),
-  api_key = config('CLOUD_API'),
-  api_secret = config('API_SECRET'),
+  cloud_name = config('chibah54'),
+  api_key = config('478268632257722'),
+  api_secret = config('pwGN0kAUp1DCXdQJAfi4_56L2zo'),
 )
 
 
