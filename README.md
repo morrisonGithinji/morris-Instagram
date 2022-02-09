@@ -6,7 +6,7 @@ email: morrison.githinji@student.moringaschool.com
 
 
 ## Description
-Instaclone is a web application similar to instagram in which on ecan post photos for their followers to view like and share.
+Morrisinsta is a web application similar to instagram in which on ecan post photos for their followers to view like and share.
 ## Installation
 
 ## Technology used
