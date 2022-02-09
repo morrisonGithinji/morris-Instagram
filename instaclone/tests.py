@@ -58,7 +58,7 @@ class PostTest(TestCase):
     self.ebay =Post(user=user,image='morris.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05')
     
   def test_instance(self):
-    self.assertTrue(isinstance(self.ebay,Post))
+    self.assertTrue(isinstance(self.morris,Post))
   
   def test_save(self):
     self.morris.save_image()
