@@ -13,7 +13,7 @@ class ProfileTestCase(TestCase):
     self.assertTrue(isinstance(self.morris,Profile))  
     
   def test_save_method(self):
-      self.ebay.save_profile()
+      self.morris.save_profile()
       profiles =Profile.objects.all()
       self.assertTrue(len(profiles)>0)
       
@@ -25,7 +25,7 @@ class LikesTestCase(TestCase):
     post = Post.objects.create(user=user,image='morris.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05' )
     Likes.objects.create(user=user,post=post)
     
-    self.ebay=Likes(user=user)
+    self.morris=Likes(user=user)
     
   def test_instance(self):
     self.assertTrue(isinstance(self.morris,Likes))  
@@ -36,7 +36,7 @@ class CommentTestCase(TestCase):
     profile = Profile.objects.create(user=user,bio='code and fun', profile_photo ='morris.jpg')
     post = Post.objects.create(user=user,image='morris.jpg', image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05' )
     
-    self.ebay=Comment(user=user, date='2022-02-05',post=post,comment="yes we can")
+    self.morris=Comment(user=user, date='2022-02-05',post=post,comment="yes we can")
   def test_instance(self):
     self.assertTrue(isinstance(self.morris,Comment))
     
@@ -55,7 +55,7 @@ class PostTest(TestCase):
     user = User.objects.create(username='morris',password= '5431140')
     profile = Profile.objects.create(user=user,bio='code and fun', profile_photo ='morris.jpg')
 
-    self.ebay =Post(user=user,image='morris.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05')
+    self.morris =Post(user=user,image='morris.jpg',image_name='me',image_caption= 'i can',profile=profile,likes=2,date='2022-02-05')
     
   def test_instance(self):
     self.assertTrue(isinstance(self.morris,Post))
