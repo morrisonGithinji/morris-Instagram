@@ -8,7 +8,7 @@ import datetime as dt
 class ProfileTestCase(TestCase):
   def setUp(self):
     user = User.objects.create(username='morris',password= '5431140')
-    self.ebay =Profile(bio='Programming is life',user=user)
+    self.morris =Profile(bio='Programming is life',user=user)
   def test_instance(self):
     self.assertTrue(isinstance(self.morris,Profile))  
     
