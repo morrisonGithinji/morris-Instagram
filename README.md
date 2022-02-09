@@ -1,4 +1,4 @@
-## Title: InstaClone
+## Title: Morrisinsta
 
 ## Author :
 Name: Morrison njenga
